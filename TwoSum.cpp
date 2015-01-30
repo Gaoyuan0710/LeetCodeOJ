@@ -32,16 +32,17 @@ class Solution{
 			for (vector<int>::size_type i = 0; i < numbers.size(); i++){
 				map<int, int>::iterator iter = numberMap.find(target - numbers[i]);
 
+				cout << numbers[i] << endl;
+
 				if (iter != numberMap.end()){
 					result.push_back(iter->second);
 					result.push_back(i + 1);
-
-					break;
 				}
 				else{
 					numberMap[numbers[i]] = i + 1;
 				}
 			}
+		return result;
 		}
 };
 int main(int argc, char *argv[])
@@ -51,9 +52,8 @@ int main(int argc, char *argv[])
 	int array[4] = {2, 7, 11, 15};
 
 	vector <int> number(array, array + 4);
-	vector <int> result = testOJ.twoSum(number, 15);
+	vector <int> result (testOJ.twoSum(number, 9));
 
-	cout << result[0] << " " << result[1] << endl;
 
 	return 0;
 }
